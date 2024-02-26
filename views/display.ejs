@@ -1,0 +1,45 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('upload.html') %>
+    <title>Display Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image-item {
+            margin: 10px;
+        }
+        .image-item img {
+            max-width: 300px;
+            max-height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Images:</h1>
+    <div class="image-container">
+        <% imagePaths.forEach(function(imagePath) { %>
+            <div class="image-item">
+                <img src="<%= imagePath %>" alt="Image">
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
